@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="20" style="-fx-padding: 20;" xmlns="http://javafx.com/javafx/21" 
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.operator.tabs.ElectricMeterTabController">
+    
+    <!-- Header -->
+    <Label text="Daily Electric Meter Reading" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+    
+    <!-- Input Form -->
+    <VBox spacing="15" style="-fx-padding: 20; -fx-background-color: #e8f4fd; -fx-background-radius: 10;">
+        <Label text="Record Today's Meter Reading" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+        
+        <GridPane hgap="15" vgap="10">
+            <columnConstraints>
+                <ColumnConstraints prefWidth="150"/>
+                <ColumnConstraints prefWidth="250"/>
+            </columnConstraints>
+            
+            <Label text="Date:" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold;"/>
+            <DatePicker fx:id="readingDatePicker" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            
+            <Label text="Meter Reading:" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="meterReadingField" promptText="Enter current meter reading" 
+                      GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            
+            <Label text="Units:" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-weight: bold;"/>
+            <Label text="kWh" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        </GridPane>
+        
+        <Button text="Submit Reading" onAction="#handleSubmitReading" 
+                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 30;"/>
+    </VBox>
+    
+    <!-- Today's Reading Status -->
+    <VBox spacing="10" style="-fx-padding: 15; -fx-background-color: #f8f9fa; -fx-background-radius: 10;">
+        <Label text="Today's Reading Status" style="-fx-font-weight: bold;"/>
+        <Label fx:id="todayStatusLabel" text="No reading recorded for today"/>
+    </VBox>
+    
+    <!-- Recent Readings Table -->
+    <Label text="Recent Meter Readings" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+    <TableView fx:id="readingsTable" prefHeight="250">
+        <columns>
+            <TableColumn text="Date" prefWidth="120"/>
+            <TableColumn text="Meter Reading" prefWidth="120"/>
+            <TableColumn text="Recorded By" prefWidth="150"/>
+            <TableColumn text="Time" prefWidth="150"/>
+        </columns>
+    </TableView>
+    
+    <!-- Information -->
+    <VBox spacing="5" style="-fx-padding: 10; -fx-background-color: #fff3cd; -fx-border-radius: 5;">
+        <Label text="📋 Instructions:" style="-fx-font-weight: bold;"/>
+        <Label text="1. Record meter reading once per day (usually in the morning)" wrapText="true"/>
+        <Label text="2. Only one reading per day is allowed" wrapText="true"/>
+        <Label text="3. Readings are used to calculate electricity costs" wrapText="true"/>
+    </VBox>
+</VBox>

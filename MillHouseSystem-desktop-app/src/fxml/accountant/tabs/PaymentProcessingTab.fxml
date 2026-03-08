@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fxml.accountant.tabs.PaymentProcessingTabController">
+    <VBox spacing="20" style="-fx-padding: 20;">
+        <Label text="Pending Payments" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+
+        <TableView fx:id="pendingPaymentsTable" prefHeight="300">
+            <columns>
+                <TableColumn text="Type" prefWidth="120"/>
+                <TableColumn text="Description" prefWidth="200"/>
+                <TableColumn text="Amount (ETB)" prefWidth="150"/>
+                <TableColumn text="Status" prefWidth="100"/>
+            </columns>
+        </TableView>
+
+        <VBox spacing="12" style="-fx-padding: 20; -fx-background-color: #f8f9fa; -fx-background-radius: 10;">
+            <Label text="Process Payment" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+            <HBox spacing="10">
+                <Label text="Payment Method:"/>
+                <ComboBox fx:id="paymentMethodCombo" prefWidth="150"/>
+                <Label text="Amount:"/>
+                <TextField fx:id="paymentAmountField" prefWidth="150"/>
+                <Button text="Process Payment" onAction="#handleProcessPayment"
+                        style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            </HBox>
+        </VBox>
+    </VBox>
+</ScrollPane>

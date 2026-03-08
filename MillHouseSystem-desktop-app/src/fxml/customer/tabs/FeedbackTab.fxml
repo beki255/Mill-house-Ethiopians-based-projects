@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" vbarPolicy="AS_NEEDED" hbarPolicy="AS_NEEDED"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fxml.customer.tabs.FeedbackTabController">
+   <VBox spacing="15" style="-fx-padding: 20;">
+      <Label text="Service Feedback"
+             style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+      <VBox spacing="15" style="-fx-padding: 20; -fx-background-color: #f8f9fa; -fx-background-radius: 5;">
+         <Label text="Share Your Experience" style="-fx-font-size: 18; -fx-font-weight: bold;" />
+
+         <GridPane hgap="15" vgap="10">
+            <Label text="Service Rating *" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+            <ComboBox fx:id="ratingCombo" promptText="Select rating" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+            <Label text="Comments *" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+            <TextArea fx:id="feedbackTextArea" promptText="Tell us about your experience..." GridPane.rowIndex="1" GridPane.columnIndex="1"
+                      style="-fx-pref-height: 120;" />
+         </GridPane>
+
+         <Button text="Submit Feedback" onAction="#handleSubmitFeedback"
+                 style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-width: 200; -fx-pref-height: 40;" />
+      </VBox>
+
+      <VBox spacing="10">
+         <Label text="My Previous Feedback" style="-fx-font-size: 18; -fx-font-weight: bold;" />
+         <TableView fx:id="feedbackHistoryTable" prefHeight="300">
+            <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
+         </TableView>
+      </VBox>
+   </VBox>
+</ScrollPane>

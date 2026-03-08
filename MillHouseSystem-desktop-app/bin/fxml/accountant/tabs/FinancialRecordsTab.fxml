@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fxml.accountant.tabs.FinancialRecordsTabController">
+    <VBox spacing="20" style="-fx-padding: 20;">
+        <HBox spacing="10">
+            <Label text="From:"/>
+            <DatePicker fx:id="startDatePicker"/>
+            <Label text="To:"/>
+            <DatePicker fx:id="endDatePicker"/>
+            <Button text="Generate Report" onAction="#handleGenerateReport"
+                    style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
+        </HBox>
+
+        <HBox spacing="30">
+            <VBox>
+                <Label text="Total Revenue"/>
+                <Label fx:id="totalRevenueLabel" text="ETB 0.00"
+                       style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #27ae60;"/>
+            </VBox>
+            <VBox>
+                <Label text="Total Expenses"/>
+                <Label fx:id="totalExpensesLabel" text="ETB 0.00"
+                       style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #e74c3c;"/>
+            </VBox>
+            <VBox>
+                <Label text="Net Profit"/>
+                <Label fx:id="netProfitLabel" text="ETB 0.00"
+                       style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #2ecc71;"/>
+            </VBox>
+        </HBox>
+
+        <TableView fx:id="financialTable" prefHeight="450">
+            <columns>
+                <TableColumn text="Date" prefWidth="120"/>
+                <TableColumn text="Description" prefWidth="250"/>
+                <TableColumn text="Revenue (ETB)" prefWidth="150"/>
+                <TableColumn text="Expense (ETB)" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </VBox>
+</ScrollPane>

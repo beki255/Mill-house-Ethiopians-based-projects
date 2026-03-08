@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fxml.accountant.tabs.SalaryRecordsTabController">
+    <VBox spacing="20" style="-fx-padding: 20;">
+        <HBox spacing="10">
+            <Label text="Select Month:"/>
+            <DatePicker fx:id="salaryMonthPicker"/>
+            <Button text="View Salary" onAction="#handleViewSalary"
+                    style="-fx-background-color: #f39c12; -fx-text-fill: white;"/>
+        </HBox>
+
+        <TableView fx:id="salaryTable" prefHeight="400">
+            <columns>
+                <TableColumn text="Staff Name" prefWidth="150"/>
+                <TableColumn text="Role" prefWidth="120"/>
+                <TableColumn text="Amount (ETB)" prefWidth="150"/>
+                <TableColumn text="Status" prefWidth="100"/>
+            </columns>
+        </TableView>
+    </VBox>
+</ScrollPane>

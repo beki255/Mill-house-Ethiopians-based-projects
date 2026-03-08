@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="staffForm"
+      visible="false" managed="false"
+      alignment="CENTER" spacing="32" maxWidth="580"
+      style="-fx-background-color: rgba(255,255,255,0.22);
+             -fx-background-radius: 48;
+             -fx-padding: 65 80 75 80;
+             -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75), 55, 0.7, 0, 22);"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="fxml.login.components.StaffLoginFormController">
+
+    <Label text="Staff Login" style="-fx-font-size: 42; -fx-text-fill: white; -fx-font-weight: bold;"/>
+    
+    <!-- Username Field -->
+    <TextField fx:id="usernameField" promptText="Username" styleClass="glass-field"/>
+    
+    <!-- Password Field Container -->
+    <VBox spacing="8" alignment="CENTER_LEFT">
+        <!-- Password Field (Hidden by default) -->
+        <PasswordField fx:id="passwordField" promptText="Password (min 8 characters)" styleClass="glass-field"/>
+        
+        <!-- Visible Password Field (Hidden by default) -->
+        <TextField fx:id="visiblePasswordField" promptText="Password (min 8 characters)" styleClass="glass-field"/>
+        
+        <!-- Password Hint Label -->
+        <Label fx:id="passwordHintLabel" 
+               style="-fx-text-fill: rgba(255,255,255,0.82); -fx-font-size: 16; -fx-font-weight: normal; -fx-padding: 0 10;"/>
+    </VBox>
+
+    <!-- Checkboxes Row -->
+    <HBox spacing="22" alignment="CENTER_LEFT">
+        <CheckBox fx:id="showPasswordCheckbox" text="Show password" 
+                  style="-fx-text-fill: rgba(255,255,255,0.9); -fx-font-size: 17;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <CheckBox fx:id="rememberMeCheckbox" text="Remember me" 
+                  style="-fx-text-fill: rgba(255,255,255,0.9); -fx-font-size: 17;"/>
+    </HBox>
+
+    <!-- Error Label -->
+    <Label fx:id="errorLabel" style="-fx-text-fill: #ff7675; -fx-font-weight: bold; -fx-font-size: 18; -fx-padding: 5 0;"/>
+    
+    <!-- Login Button -->
+    <Button fx:id="loginButton" text="LOGIN" onAction="#handleLogin" 
+            prefWidth="Infinity" prefHeight="75" styleClass="solid-green"/>
+    
+    <!-- Back Button -->
+    <Button text="Back" onAction="#handleBack" styleClass="link-button"/>
+</VBox>

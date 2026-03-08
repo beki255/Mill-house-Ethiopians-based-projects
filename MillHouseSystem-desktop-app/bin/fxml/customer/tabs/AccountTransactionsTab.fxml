@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" vbarPolicy="AS_NEEDED" hbarPolicy="AS_NEEDED"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fxml.customer.tabs.AccountTransactionsTabController">
+   <VBox spacing="15" style="-fx-padding: 20;">
+      <Label text="My Account and History"
+             style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+      <VBox spacing="15" style="-fx-padding: 20; -fx-background-color: #ecf0f1; -fx-background-radius: 5;">
+         <Label text="Account Summary" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+         <GridPane hgap="30" vgap="10">
+            <VBox spacing="5" GridPane.columnIndex="0">
+               <Label text="Customer Name" style="-fx-font-weight: bold; -fx-text-fill: #7f8c8d;" />
+               <Label fx:id="customerNameLabel" text="-" style="-fx-font-size: 16; -fx-font-weight: bold;" />
+            </VBox>
+            <VBox spacing="5" GridPane.columnIndex="1">
+               <Label text="Credit Balance" style="-fx-font-weight: bold; -fx-text-fill: #7f8c8d;" />
+               <Label fx:id="creditBalanceLabel" text="ETB 0.00" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #e67e22;" />
+            </VBox>
+         </GridPane>
+      </VBox>
+      
+
+      <VBox spacing="10">
+         <Label text="Recent Transactions" style="-fx-font-size: 18; -fx-font-weight: bold;" />
+         <TableView fx:id="transactionsTable" prefHeight="250">
+            <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
+         </TableView>
+      </VBox>
+<!-- Add Password Change Section -->
+<VBox spacing="10" style="-fx-padding: 15; -fx-background-color: #f8f9fa; -fx-background-radius: 5;">
+    <Label text="Account Security" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+    <Button text="Change Password" onAction="#handleChangePassword"
+            style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-font-weight: bold; -fx-min-width: 150;"/>
+</VBox>
+      <VBox spacing="10">
+         <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Order History" style="-fx-font-size: 18; -fx-font-weight: bold;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Repeat Selected Order" onAction="#handleRepeatOrder"
+                    style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold;" />
+         </HBox>
+         <TableView fx:id="orderHistoryTable" prefHeight="250">
+            <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
+         </TableView>
+      </VBox>
+   </VBox>
+</ScrollPane>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fxml.driver.tabs.DeliveryHistoryTabController">
+    <VBox spacing="20" style="-fx-padding: 20;">
+        <HBox spacing="10">
+            <Label text="Select Date:"/>
+            <DatePicker fx:id="historyDatePicker"/>
+            <Button text="View History" onAction="#handleViewHistory"
+                    style="-fx-background-color: #9b59b6; -fx-text-fill: white;"/>
+        </HBox>
+
+        <TableView fx:id="historyTable" prefHeight="400">
+            <columns>
+                <TableColumn text="Date" prefWidth="120"/>
+                <TableColumn text="Address" prefWidth="250"/>
+                <TableColumn text="Status" prefWidth="120"/>
+                <TableColumn text="Delivery Time" prefWidth="120"/>
+            </columns>
+        </TableView>
+    </VBox>
+</ScrollPane>

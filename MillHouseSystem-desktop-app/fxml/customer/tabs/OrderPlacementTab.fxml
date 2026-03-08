@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" vbarPolicy="AS_NEEDED" hbarPolicy="AS_NEEDED"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fxml.customer.tabs.OrderPlacementTabController">
+   <VBox spacing="15" style="-fx-padding: 20;">
+      <Label text="Place New Order"
+             style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-wrap-text: true;" />
+      
+      <!-- Customer Balance Info -->
+      <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10; -fx-background-color: #e8f4fd; -fx-border-radius: 5;">
+         <Label fx:id="customerBalanceLabel" text="Credit Balance: Loading..." 
+                style="-fx-font-weight: bold; -fx-text-fill: #2980b9;" />
+      </HBox>
+
+      <VBox spacing="15" style="-fx-padding: 20; -fx-background-color: #f8f9fa; -fx-background-radius: 5;">
+         <Label text="Order Details" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+         <GridPane hgap="15" vgap="15" alignment="CENTER_LEFT">
+            <columnConstraints>
+               <ColumnConstraints prefWidth="180" minWidth="150" />
+               <ColumnConstraints prefWidth="250" hgrow="ALWAYS" />
+               <ColumnConstraints prefWidth="180" minWidth="150" />
+               <ColumnConstraints prefWidth="250" hgrow="ALWAYS" />
+            </columnConstraints>
+
+            <Label text="Order Type *" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+            <ComboBox fx:id="orderTypeCombo" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+            <Label text="Grain Type *" GridPane.rowIndex="0" GridPane.columnIndex="2" style="-fx-font-weight: bold;" />
+            <ComboBox fx:id="grainTypeCombo" GridPane.rowIndex="0" GridPane.columnIndex="3" />
+
+            <Label text="Estimated Weight (kg) *" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+            <TextField fx:id="estimatedWeightField" promptText="Enter weight in kg" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+            <Label text="Delivery Type *" GridPane.rowIndex="1" GridPane.columnIndex="2" style="-fx-font-weight: bold;" />
+            <ComboBox fx:id="deliveryTypeCombo" GridPane.rowIndex="1" GridPane.columnIndex="3" />
+
+            <Label text="Payment Method *" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+            <ComboBox fx:id="paymentMethodCombo" promptText="Select payment method" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+            <Label text="Estimated Cost" GridPane.rowIndex="2" GridPane.columnIndex="2" style="-fx-font-weight: bold;" />
+            <Label fx:id="estimatedCostLabel" text="ETB 0.00" GridPane.rowIndex="2" GridPane.columnIndex="3"
+                   style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #e67e22; -fx-padding: 8; -fx-background-color: #fff3cd; -fx-background-radius: 5;" />
+         </GridPane>
+
+         <Button text="Place Order" onAction="#handlePlaceOrder"
+                 style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-width: 200; -fx-pref-height: 45; -fx-font-size: 14;" />
+      </VBox>
+
+      <VBox spacing="10">
+         <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="My Active Orders" style="-fx-font-size: 18; -fx-font-weight: bold;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Repeat Selected Order" onAction="#handleRepeatOrder"
+                    style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-min-width: 160;" />
+            <Button text="Cancel Selected Order" onAction="#handleCancelOrder"
+                    style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-min-width: 160;" />
+         </HBox>
+         
+         <Label fx:id="orderStatusInfoLabel" text="Select an order to see details"
+                style="-fx-text-fill: #7f8c8d; -fx-font-style: italic; -fx-padding: 5;" />
+         
+         <TableView fx:id="activeOrdersTable" prefHeight="300">
+            <columns>
+               <TableColumn text="Order Type" prefWidth="130" />
+               <TableColumn text="Grain" prefWidth="100" />
+               <TableColumn text="Weight (kg)" prefWidth="90" />
+               <TableColumn text="Delivery" prefWidth="100" />
+               <TableColumn text="Payment" prefWidth="120" />
+               <TableColumn text="Status" prefWidth="120" />
+            </columns>
+         </TableView>
+      </VBox>
+   </VBox>
+</ScrollPane>

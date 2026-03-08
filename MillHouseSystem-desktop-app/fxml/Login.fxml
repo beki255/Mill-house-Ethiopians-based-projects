@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fxml.LoginMainController"
+            style="-fx-background-image: url('/images/mill_logo.png');
+                   -fx-background-size: cover;
+                   -fx-background-position: center center;
+                   -fx-background-repeat: no-repeat;">
+
+  <!-- In Login.fxml - Fix the ChoiceBox definition -->
+<!-- In Login.fxml - Simplified ChoiceBox style -->
+
+
+    <!-- MAIN CONTENT -->
+    <ScrollPane fitToWidth="true" fitToHeight="true" hbarPolicy="NEVER" vbarPolicy="NEVER"
+                style="-fx-background: transparent; -fx-background-color: transparent;"
+                AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="60"
+                AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <VBox alignment="CENTER" spacing="55">
+            <padding>
+                <Insets top="80" right="200" bottom="100" left="200"/>
+            </padding>
+
+            <!-- TITLE -->
+            <VBox alignment="CENTER" spacing="15">
+                <Label fx:id="lblTitle" text="Mill House Management System"
+                       style="-fx-font-size: 50; -fx-font-weight: bold; -fx-text-fill: white;
+                              -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.9), 12, 0.7, 0, 5);"/>
+                <Label fx:id="lblSubtitle" text="Ethiopia • Quality Grain Processing Since 2018"
+                       style="-fx-font-size: 26; -fx-text-fill: #27ae60; -fx-font-weight: bold;"/>
+            </VBox>
+
+            <!-- INITIAL SCREEN -->
+            <fx:include source="login/components/InitialScreen.fxml" fx:id="initialScreen"/>
+
+            <!-- STAFF LOGIN -->
+            <fx:include source="login/components/StaffLoginForm.fxml" fx:id="staffForm"/>
+
+            <!-- CUSTOMER LOGIN -->
+            <fx:include source="login/components/CustomerLoginForm.fxml" fx:id="customerForm"/>
+
+            <!-- LOADING SPINNER -->
+            <ProgressIndicator fx:id="loadingIndicator" visible="false" prefWidth="90" prefHeight="90"/>
+        </VBox>
+    </ScrollPane>
+
+    <!-- FOOTER -->
+    <Label fx:id="lblFooter" text="© 2025 Mill House • Addis Ababa, Ethiopia"
+           AnchorPane.bottomAnchor="22" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+           alignment="CENTER"
+           style="-fx-text-fill: rgba(255,255,255,0.96); -fx-font-size: 16; -fx-font-weight: bold;"/>
+
+    <stylesheets>
+        <URL value="@/styles/login_styles.css"/>
+    </stylesheets>
+</AnchorPane>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" vbarPolicy="AS_NEEDED" hbarPolicy="AS_NEEDED"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fxml.operator.tabs.TransactionTabController">
+   <VBox spacing="15" style="-fx-padding: 20;">
+      <Label text="Daily Transaction Entry" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+      <VBox spacing="10" style="-fx-padding: 15; -fx-background-color: #f8f9fa; -fx-background-radius: 5;">
+         <GridPane hgap="15" vgap="10" alignment="CENTER_LEFT">
+            <columnConstraints>
+               <ColumnConstraints prefWidth="150" />
+               <ColumnConstraints prefWidth="200" />
+               <ColumnConstraints prefWidth="120" />
+               <ColumnConstraints prefWidth="120" />
+               <ColumnConstraints prefWidth="150" />
+               <ColumnConstraints prefWidth="200" />
+            </columnConstraints>
+
+            <Label text="Customer Name*" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+            <TextField fx:id="customerNameField" promptText="Enter customer name" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+            
+            <Label text="Phone*" GridPane.rowIndex="0" GridPane.columnIndex="2" style="-fx-font-weight: bold;" />
+            <TextField fx:id="customerPhoneField" promptText="09XXXXXXXX or 07XXXXXXXX" GridPane.rowIndex="0" GridPane.columnIndex="3" />
+
+            <Label text="Grain Type*" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+            <ComboBox fx:id="grainTypeCombo" promptText="Select grain type" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+            <Label text="Weight (kg)*" GridPane.rowIndex="1" GridPane.columnIndex="2" style="-fx-font-weight: bold;" />
+            <TextField fx:id="weightField" promptText="Enter weight" GridPane.rowIndex="1" GridPane.columnIndex="3" />
+
+            <Label text="Payment Type*" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+            <ComboBox fx:id="paymentTypeCombo" promptText="Select payment type" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+            <Label text="Calculated Amount" GridPane.rowIndex="2" GridPane.columnIndex="2" style="-fx-font-weight: bold;" />
+            <Label fx:id="calculatedAmountLabel" text="ETB 0.00" GridPane.rowIndex="2" GridPane.columnIndex="3"
+                   style="-fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #27ae60; -fx-padding: 5; -fx-background-color: #ecf0f1; -fx-background-radius: 3;" />
+         </GridPane>
+
+         <Button text="Process Transaction" onAction="#handleTransaction"
+                 style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-width: 200; -fx-pref-height: 40;" />
+      </VBox>
+      <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 0 0 10 0;">
+    <Button text="Sync Delivered Orders" onAction="#handleSyncDeliveredOrders"
+            style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-font-weight: bold;"/>
+    <Label text="Note: Customer portal orders appear here only after delivery"
+           style="-fx-text-fill: #7f8c8d; -fx-font-style: italic;"/>
+           
+</HBox>
+
+      <Separator />
+
+      <Label text="Recent Transactions" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+      <TableView fx:id="transactionTable" prefHeight="400">
+         <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
+      </TableView>
+   </VBox>
+</ScrollPane>

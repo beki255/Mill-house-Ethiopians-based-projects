@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" vbarPolicy="AS_NEEDED" hbarPolicy="AS_NEEDED"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fxml.customer.tabs.OrderPlacementTabController">
+   <VBox spacing="15" style="-fx-padding: 20;">
+      <Label text="Place New Order"
+             style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-wrap-text: true;" />
+      
+      <!-- Customer Balance Info -->
+      <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10; -fx-background-color: #e8f4fd; -fx-border-radius: 5;">
+         <Label fx:id="customerBalanceLabel" text="Credit Balance: Loading..." 
+                style="-fx-font-weight: bold; -fx-text-fill: #2980b9;" />
+      </HBox>
+
+      <VBox spacing="15" style="-fx-padding: 20; -fx-background-color: #f8f9fa; -fx-background-radius: 5;">
+         <Label text="Order Details" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+         <GridPane hgap="15" vgap="15" alignment="CENTER_LEFT">
+            <columnConstraints>
+               <ColumnConstraints prefWidth="180" minWidth="150" />
+               <ColumnConstraints prefWidth="250" hgrow="ALWAYS" />
+               <ColumnConstraints prefWidth="180" minWidth="150" />
+               <ColumnConstraints prefWidth="250" hgrow="ALWAYS" />
+            </columnConstraints>
+
+            <Label text="Order Type *" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+            <ComboBox fx:id="orderTypeCombo" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+            <Label text="Grain Type *" GridPane.rowIndex="0" GridPane.columnIndex="2" style="-fx-font-weight: bold;" />
+            <ComboBox fx:id="grainTypeCombo" GridPane.rowIndex="0" GridPane.columnIndex="3" />
+
+            <Label text="Estimated Weight (kg) *" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+            <TextField fx:id="estimatedWeightField" promptText="Enter weight in kg" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+            <Label text="Delivery Type *" GridPane.rowIndex="1" GridPane.columnIndex="2" style="-fx-font-weight: bold;" />
+            <ComboBox fx:id="deliveryTypeCombo" GridPane.rowIndex="1" GridPane.columnIndex="3" />
+
+            <Label text="Payment Method *" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+            <ComboBox fx:id="paymentMethodCombo" promptText="Select payment method" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+            <Label text="Estimated Cost" GridPane.rowIndex="2" GridPane.columnIndex="2" style="-fx-font-weight: bold;" />
+            <Label fx:id="estimatedCostLabel" text="ETB 0.00" GridPane.rowIndex="2" GridPane.columnIndex="3"
+                   style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #e67e22; -fx-padding: 8; -fx-background-color: #fff3cd; -fx-background-radius: 5;" />
+         </GridPane>
+
+         <!-- Mobile Money Details Section -->
+         <VBox fx:id="mobileMoneyDetailsBox" spacing="10" 
+               style="-fx-padding: 15; -fx-background-color: #e8f6f5; -fx-background-radius: 5; -fx-border-color: #1abc9c; -fx-border-radius: 5; -fx-border-width: 1px;"
+               visible="false" managed="false">
+            <Label text="Mobile Money Details" 
+                   style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #16a085;" />
+            
+            <GridPane hgap="10" vgap="10">
+               <columnConstraints>
+                  <ColumnConstraints prefWidth="150" />
+                  <ColumnConstraints prefWidth="300" hgrow="ALWAYS" />
+               </columnConstraints>
+               
+               <Label text="Mobile Money Type *" GridPane.rowIndex="0" GridPane.columnIndex="0" 
+                      style="-fx-font-weight: bold;" />
+               <ComboBox fx:id="mobileMoneyTypeCombo" promptText="Select mobile money" 
+                         GridPane.rowIndex="0" GridPane.columnIndex="1" />
+               
+               <Label text="Phone Number *" GridPane.rowIndex="1" GridPane.columnIndex="0" 
+                      style="-fx-font-weight: bold;" />
+               <TextField fx:id="mobilePhoneField" promptText="Enter your phone number" 
+                          GridPane.rowIndex="1" GridPane.columnIndex="1" />
+               
+               <Label text="Transaction PIN" GridPane.rowIndex="2" GridPane.columnIndex="0" 
+                      style="-fx-font-weight: bold;" />
+               <PasswordField fx:id="mobilePinField" promptText="Enter transaction PIN (Optional)" 
+                          GridPane.rowIndex="2" GridPane.columnIndex="1" />
+               
+               <Label text="Reference/Note" GridPane.rowIndex="3" GridPane.columnIndex="0" 
+                      style="-fx-font-weight: bold;" />
+               <TextField fx:id="mobileReferenceField" promptText="Optional: Payment reference" 
+                          GridPane.rowIndex="3" GridPane.columnIndex="1" />
+            </GridPane>
+            
+            <!-- Mobile Money Information -->
+            <VBox spacing="5" style="-fx-padding: 10; -fx-background-color: #d1f2eb; -fx-background-radius: 5;">
+               <Label text="📱 Mill House Mobile Money:" 
+                      style="-fx-font-weight: bold; -fx-text-fill: #148f77;" />
+               <Label text="TeleBirr: 0911-234-567" 
+                      style="-fx-text-fill: #34495e;" />
+               <Label text="M-Pesa: 0922-345-678" 
+                      style="-fx-text-fill: #34495e;" />
+               <Label text="HelloCash: 0933-456-789" 
+                      style="-fx-text-fill: #34495e;" />
+               <Label text="🔗 Please use your order number as payment reference" 
+                      style="-fx-text-fill: #7d3c98; -fx-font-style: italic; -fx-font-size: 12;" />
+            </VBox>
+         </VBox>
+
+         <!-- Bank Transfer Details Section -->
+         <VBox fx:id="bankTransferDetailsBox" spacing="10" 
+               style="-fx-padding: 15; -fx-background-color: #e8f6ff; -fx-background-radius: 5; -fx-border-color: #3498db; -fx-border-radius: 5; -fx-border-width: 1px;"
+               visible="false" managed="false">
+            <Label text="Bank Transfer Details" 
+                   style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #2980b9;" />
+            
+            <GridPane hgap="10" vgap="10">
+               <columnConstraints>
+                  <ColumnConstraints prefWidth="150" />
+                  <ColumnConstraints prefWidth="300" hgrow="ALWAYS" />
+               </columnConstraints>
+               
+               <Label text="Select Bank *" GridPane.rowIndex="0" GridPane.columnIndex="0" 
+                      style="-fx-font-weight: bold;" />
+               <ComboBox fx:id="bankNameCombo" promptText="Choose your bank" 
+                         GridPane.rowIndex="0" GridPane.columnIndex="1" />
+               
+               <Label text="Account Number *" GridPane.rowIndex="1" GridPane.columnIndex="0" 
+                      style="-fx-font-weight: bold;" />
+               <TextField fx:id="accountNumberField" promptText="Enter your bank account number" 
+                          GridPane.rowIndex="1" GridPane.columnIndex="1" />
+               
+               <Label text="Account Holder Name *" GridPane.rowIndex="2" GridPane.columnIndex="0" 
+                      style="-fx-font-weight: bold;" />
+               <TextField fx:id="accountHolderField" promptText="Enter account holder name" 
+                          GridPane.rowIndex="2" GridPane.columnIndex="1" />
+               
+               <Label text="Reference/Note" GridPane.rowIndex="3" GridPane.columnIndex="0" 
+                      style="-fx-font-weight: bold;" />
+               <TextField fx:id="paymentReferenceField" promptText="Optional: Order reference" 
+                          GridPane.rowIndex="3" GridPane.columnIndex="1" />
+            </GridPane>
+            
+            <!-- Bank Account Information -->
+            <VBox spacing="5" style="-fx-padding: 10; -fx-background-color: #d6eaf8; -fx-background-radius: 5;">
+               <Label text="💳 Mill House Bank Accounts:" 
+                      style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+               <Label text="CBE: 1000-1234567-89" 
+                      style="-fx-text-fill: #34495e;" />
+               <Label text="Awash Bank: 013-4567890-12" 
+                      style="-fx-text-fill: #34495e;" />
+               <Label text="Abay Bank: 123-7894561-23" 
+                      style="-fx-text-fill: #34495e;" />
+               <Label text="🔗 Please use your order number as payment reference" 
+                      style="-fx-text-fill: #7d3c98; -fx-font-style: italic; -fx-font-size: 12;" />
+            </VBox>
+         </VBox>
+
+         <Button text="Place Order" onAction="#handlePlaceOrder"
+                 style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-width: 200; -fx-pref-height: 45; -fx-font-size: 14;" />
+      </VBox>
+
+      <VBox spacing="10">
+         <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="My Active Orders" style="-fx-font-size: 18; -fx-font-weight: bold;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Repeat Selected Order" onAction="#handleRepeatOrder"
+                    style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-min-width: 160;" />
+            <Button text="Cancel Selected Order" onAction="#handleCancelOrder"
+                    style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-min-width: 160;" />
+         </HBox>
+         
+         <Label fx:id="orderStatusInfoLabel" text="Select an order to see details"
+                style="-fx-text-fill: #7f8c8d; -fx-font-style: italic; -fx-padding: 5;" />
+         
+         <TableView fx:id="activeOrdersTable" prefHeight="300">
+            <columns>
+               <TableColumn text="Order Type" prefWidth="130" />
+               <TableColumn text="Grain" prefWidth="100" />
+               <TableColumn text="Weight (kg)" prefWidth="90" />
+               <TableColumn text="Delivery" prefWidth="100" />
+               <TableColumn text="Payment" prefWidth="120" />
+               <TableColumn text="Status" prefWidth="120" />
+            </columns>
+         </TableView>
+      </VBox>
+   </VBox>
+</ScrollPane>

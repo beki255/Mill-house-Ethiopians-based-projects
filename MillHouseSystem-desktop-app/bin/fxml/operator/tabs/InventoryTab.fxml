@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<ScrollPane fitToWidth="true" vbarPolicy="AS_NEEDED"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fxml.operator.tabs.InventoryTabController">
+   <VBox spacing="15" style="-fx-padding: 20;">
+      <Label fx:id="lowStockAlertLabel" wrapText="true"
+             style="-fx-padding: 10; -fx-background-color: #fff3cd; -fx-border-color: #ffeaa7; -fx-border-radius: 5;" />
+      
+      <!-- Stock Control Actions -->
+      <HBox spacing="10" alignment="CENTER_LEFT">
+         <Label text="Stock Actions:" style="-fx-font-weight: bold;" />
+         <Button fx:id="reportLowStockBtn" text="Report Low Stock to Admin"
+                 style="-fx-background-color: #e67e22; -fx-text-fill: white; -fx-font-weight: bold;" />
+         <Region HBox.hgrow="ALWAYS" />
+         <Button text="Refresh" onAction="#refresh"
+                 style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold;" />
+      </HBox>
+
+      <Label text="Current Inventory Status" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+      <Label text="Note: Red = Out of Stock, Orange = Low Stock, Green = Available"
+             style="-fx-text-fill: #7f8c8d; -fx-font-style: italic;" />
+
+      <TableView fx:id="inventoryTable" prefHeight="400">
+         <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
+      </TableView>
+      
+      <!-- Legend -->
+      <VBox spacing="5" style="-fx-padding: 10; -fx-background-color: #f8f9fa; -fx-border-radius: 5;">
+         <Label text="Stock Status Legend:" style="-fx-font-weight: bold;" />
+         <HBox spacing="20">
+            <HBox spacing="5" alignment="CENTER_LEFT">
+               <Rectangle width="20" height="20" style="-fx-fill: #e74c3c;" />
+               <Label text="Out of Stock (0 kg)" />
+            </HBox>
+            <HBox spacing="5" alignment="CENTER_LEFT">
+               <Rectangle width="20" height="20" style="-fx-fill: #e67e22;" />
+               <Label text="Low Stock (≤ 200 kg)" />
+            </HBox>
+            <HBox spacing="5" alignment="CENTER_LEFT">
+               <Rectangle width="20" height="20" style="-fx-fill: #27ae60;" />
+               <Label text="Available (> 200 kg)" />
+            </HBox>
+         </HBox>
+      </VBox>
+   </VBox>
+</ScrollPane>

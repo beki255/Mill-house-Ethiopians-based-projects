@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.Insets?>
+
+<ScrollPane fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fxml.admin.tabs.InventoryManagementTabController">
+    <VBox spacing="25" style="-fx-padding: 25;">
+        <!-- SECTION 1: INVENTORY MANAGEMENT -->
+        <VBox spacing="15" style="-fx-padding: 20; -fx-background-color: #e8f4fd; -fx-background-radius: 10;">
+            <Label text="Grain Inventory Management" style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: #2980b9;"/>
+            
+            <!-- Inventory Summary -->
+            <HBox spacing="20" alignment="CENTER_LEFT">
+                <Label fx:id="totalInventoryValueLabel" text="Total Inventory Value: Loading..."
+                       style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Refresh Inventory" onAction="#refresh"
+                        style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            </HBox>
+            
+            <!-- Grain Management Form -->
+            <GridPane hgap="15" vgap="12" style="-fx-padding: 15; -fx-background-color: white; -fx-background-radius: 8;">
+                <columnConstraints>
+                    <ColumnConstraints prefWidth="150"/>
+                    <ColumnConstraints prefWidth="250"/>
+                    <ColumnConstraints prefWidth="150"/>
+                    <ColumnConstraints prefWidth="250"/>
+                </columnConstraints>
+                
+                <Label text="Grain Type:" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold;"/>
+                <ComboBox fx:id="grainTypeCombo" promptText="Select or type new" 
+                          GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                
+                <Label text="Current Stock (kg):" GridPane.rowIndex="0" GridPane.columnIndex="2" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="currentStockField" promptText="Enter stock amount" 
+                           GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+                
+                <Label text="Milling Price (ETB/kg):" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="pricePerKgField" promptText="Enter price per kg" 
+                           GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                
+                <Label text="Selected Grain:" GridPane.rowIndex="1" GridPane.columnIndex="2" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="grainNameField" promptText="Selected grain appears here" editable="false"
+                           GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+                
+                <HBox spacing="15" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="4">
+                    <Button fx:id="addGrainBtn" text="Add New Grain" onAction="#handleAddGrain"
+                            style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                    <Button fx:id="updateGrainBtn" text="Update Selected" onAction="#handleUpdateGrain"
+                            style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                    <Button fx:id="deleteGrainBtn" text="Delete Selected" onAction="#handleDeleteGrain"
+                            style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                </HBox>
+            </GridPane>
+            
+            <!-- Current Inventory Table -->
+            <Label text="Current Grain Inventory" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+            <TableView fx:id="inventoryTable" prefHeight="300">
+                <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+            </TableView>
+            
+            <!-- Legend -->
+            <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-padding: 10; -fx-background-color: #f8f9fa; -fx-background-radius: 5;">
+                <Label text="Status Legend:" style="-fx-font-weight: bold;"/>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Rectangle width="15" height="15" style="-fx-fill: #e74c3c; -fx-stroke: #c0392b;"/>
+                    <Label text="Out of Stock"/>
+                </HBox>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Rectangle width="15" height="15" style="-fx-fill: #e67e22; -fx-stroke: #d35400;"/>
+                    <Label text="Low Stock (≤200 kg)"/>
+                </HBox>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Rectangle width="15" height="15" style="-fx-fill: #27ae60; -fx-stroke: #229954;"/>
+                    <Label text="Available"/>
+                </HBox>
+            </HBox>
+        </VBox>
+        
+        <Separator/>
+        
+        <!-- SECTION 2: LOW STOCK REPORTS FROM OPERATORS -->
+        <VBox spacing="15" style="-fx-padding: 20; -fx-background-color: #fff3cd; -fx-background-radius: 10;">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="📋 Low Stock Reports from Operators" 
+                       style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: #856404;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="reportsLabel" text="Loading reports..."
+                       style="-fx-font-weight: bold; -fx-text-fill: #856404;"/>
+            </HBox>
+            
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button text="Mark as Read" onAction="#handleMarkReportAsRead"
+                        style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Button text="Mark as Resolved" onAction="#handleMarkReportAsResolved"
+                        style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Button text="Delete Report" onAction="#handleDeleteReport"
+                        style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label text="Double-click report to view details" 
+                       style="-fx-text-fill: #7f8c8d; -fx-font-style: italic;"/>
+            </HBox>
+            
+            <TableView fx:id="reportsTable" prefHeight="250">
+                <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+            </TableView>
+        </VBox>
+        
+        <!-- Information Box -->
+        <VBox spacing="8" style="-fx-padding: 15; -fx-background-color: #d4edda; -fx-border-color: #c3e6cb; -fx-border-radius: 5;">
+            <Label text="ℹ️ How Inventory Management Works:" style="-fx-font-weight: bold; -fx-text-fill: #155724;"/>
+            <Label text="1. Add new grain types with stock levels and milling prices" 
+                   style="-fx-text-fill: #155724;" wrapText="true"/>
+            <Label text="2. Operators can report low stock levels to this dashboard" 
+                   style="-fx-text-fill: #155724;" wrapText="true"/>
+            <Label text="3. Update grain prices or stock levels as needed" 
+                   style="-fx-text-fill: #155724;" wrapText="true"/>
+            <Label text="4. Delete grain types that are no longer offered" 
+                   style="-fx-text-fill: #155724;" wrapText="true"/>
+        </VBox>
+    </VBox>
+</ScrollPane>

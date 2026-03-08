@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fxml.admin.tabs.SettingsTabController">
+    <VBox spacing="30" style="-fx-padding: 30;">
+        <VBox spacing="10">
+            <Label text="Grain Milling Prices" style="-fx-font-size: 19; -fx-font-weight: bold;"/>
+            <TableView fx:id="pricesTable" prefHeight="250">
+                <!-- EMPTY columns - will be set up in controller -->
+                <columns>
+                    <TableColumn text="Grain Type" prefWidth="200"/>
+                    <TableColumn text="Price per KG (ETB)" prefWidth="200"/>
+                </columns>
+            </TableView>
+            <Button text="Update Selected Price" onAction="#handleUpdatePrices"
+                    style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
+        </VBox>
+
+        <Separator/>
+        
+        <VBox spacing="10">
+            <Label text="System Settings" style="-fx-font-size: 19; -fx-font-weight: bold;"/>
+            <HBox spacing="15">
+                <Label text="Low Stock Alert (kg):"/>
+                <TextField fx:id="lowStockThresholdField" prefWidth="150"/>
+                <Button text="Save Settings" onAction="#handleSaveSystemSettings"
+                        style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
+            </HBox>
+        </VBox>
+    </VBox>
+</ScrollPane>

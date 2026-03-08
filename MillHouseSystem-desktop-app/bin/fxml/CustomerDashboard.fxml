@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="customerPane" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fxml.CustomerMainController">
+
+   <top>
+      <VBox spacing="10" style="-fx-background-color: linear-gradient(to right, #27ae60, #2ecc71); -fx-padding: 15;">
+         <!-- Moving Welcome Message -->
+         <StackPane>
+            <HBox alignment="CENTER" style="-fx-padding: 5 0;">
+               <Label fx:id="movingWelcomeLabel" text="Welcome to Mill House - Quality Grain Processing Since 2018"
+                      style="-fx-text-fill: white; -fx-font-size: 16; -fx-font-weight: bold; -fx-padding: 5;" />
+            </HBox>
+         </StackPane>
+
+         
+         
+         <HBox spacing="20" alignment="CENTER_LEFT">
+            <Label text="Mill House - Customer Portal"
+                   style="-fx-text-fill: white; -fx-font-size: 20; -fx-font-weight: bold;" />
+            <Region HBox.hgrow="ALWAYS" />
+            
+            <Label fx:id="welcomeLabel" text="Welcome"
+                   style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14; -fx-padding: 0 20 0 0;" />
+            
+            <Button text="View Price List" onAction="#handleViewPriceList"
+                    style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-min-width: 120; -fx-background-radius: 5;" />
+            <Button text="Refresh Data" onAction="#handleRefreshData"
+                    style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-font-weight: bold; -fx-min-width: 120; -fx-background-radius: 5;" />
+            <Button text="Logout" onAction="#handleLogout"
+                    style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-min-width: 80; -fx-background-radius: 5;" />
+            <!-- Add this to the top HBox in CustomerDashboard.fxml -->
+         </HBox>
+      </VBox>
+   </top>
+
+   <center>
+      <TabPane fx:id="customerTabPane" tabClosingPolicy="UNAVAILABLE" style="-fx-background-color: #f5f5f5;">
+         <Tab text="Place Order">
+            <fx:include source="customer/tabs/OrderPlacementTab.fxml" fx:id="orderTab"/>
+         </Tab>
+         <Tab text="My Account">
+            <fx:include source="customer/tabs/AccountTransactionsTab.fxml" fx:id="accountTab"/>
+         </Tab>
+         <Tab text="Feedback">
+            <fx:include source="customer/tabs/FeedbackTab.fxml" fx:id="feedbackTab"/>
+         </Tab>
+         <Tab text="Our Grains">
+            <ScrollPane fitToWidth="true" fitToHeight="true" style="-fx-background: transparent;">
+               <VBox spacing="20" style="-fx-padding: 30; -fx-background-color: white;" alignment="CENTER">
+                  <Label text="Our Premium Grain Selection" 
+                         style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-padding: 0 0 20 0;" />
+                  
+                  <HBox spacing="30" alignment="CENTER">
+                     <!-- Wheat Image Card -->
+                     <VBox alignment="CENTER" spacing="10" style="-fx-background-color: #f8f9fa; -fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);">
+                        <ImageView fx:id="wheatImage" fitWidth="180" fitHeight="150" preserveRatio="true">
+                           <Image url="/images/wheat.png" />
+                        </ImageView>
+                        <Label text="WHEAT" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #d35400;" />
+                        <Label text="Premium Quality Wheat" style="-fx-text-fill: #7f8c8d;" />
+                        <Label text="ETB 45.00/kg" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #27ae60;" />
+                        <Button text="Order Now" onAction="#handleOrderWheat"
+                                style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20;" />
+                     </VBox>
+                     
+                     <!-- Teff Image Card -->
+                     <VBox alignment="CENTER" spacing="10" style="-fx-background-color: #f8f9fa; -fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);">
+                        <ImageView fx:id="teffImage" fitWidth="180" fitHeight="150" preserveRatio="true">
+                           <Image url="/images/teff.png" />
+                        </ImageView>
+                        <Label text="TEFF" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #8e44ad;" />
+                        <Label text="Traditional Ethiopian Teff" style="-fx-text-fill: #7f8c8d;" />
+                        <Label text="ETB 85.00/kg" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #27ae60;" />
+                        <Button text="Order Now" onAction="#handleOrderTeff"
+                                style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20;" />
+                     </VBox>
+                  </HBox>
+                  
+                  <HBox spacing="30" alignment="CENTER">
+                     <!-- Corn Image Card -->
+                     <VBox alignment="CENTER" spacing="10" style="-fx-background-color: #f8f9fa; -fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);">
+                        <ImageView fx:id="cornImage" fitWidth="180" fitHeight="150" preserveRatio="true">
+                           <Image url="/images/corn.png" />
+                        </ImageView>
+                        <Label text="PEA" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #f39c12;" />
+                        <Label text="Fresh Sweet Corn" style="-fx-text-fill: #7f8c8d;" />
+                        <Label text="ETB 40.00/kg" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #27ae60;" />
+                        <Button text="Order Now" onAction="#handleOrderCorn"
+                                style="-fx-background-color: #e67e22; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20;" />
+                     </VBox>
+                     
+                     <!-- Barley Image Card -->
+                     <VBox alignment="CENTER" spacing="10" style="-fx-background-color: #f8f9fa; -fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);">
+                        <ImageView fx:id="barleyImage" fitWidth="180" fitHeight="150" preserveRatio="true">
+                           <Image url="/images/barley.png" />
+                        </ImageView>
+                        <Label text="MAIZE" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #16a085;" />
+                        <Label text="Organic Barley" style="-fx-text-fill: #7f8c8d;" />
+                        <Label text="ETB 42.00/kg" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #27ae60;" />
+                        <Button text="Order Now" onAction="#handleOrderBarley"
+                                style="-fx-background-color: #1abc9c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 20;" />
+                     </VBox>
+                  </HBox>
+                  
+                  <Label text="Hover over images for more details • Click 'Order Now' to place an order"
+                         style="-fx-text-fill: #7f8c8d; -fx-font-style: italic; -fx-padding: 20 0 0 0;" />
+               </VBox>
+            </ScrollPane>
+         </Tab>
+      </TabPane>
+   </center>
+</BorderPane>

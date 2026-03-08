@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="20" style="-fx-padding: 20;" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="fxml.driver.tabs.DashboardTabController">
+
+    <VBox spacing="10">
+        <Label fx:id="welcomeLabel" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+        <Label fx:id="todayDeliveriesLabel" style="-fx-font-size: 14; -fx-text-fill: #7f8c8d;"/>
+    </VBox>
+
+    <Separator/>
+
+    <HBox spacing="20">
+        <VBox style="-fx-background-color: #3498db; -fx-padding: 15; -fx-background-radius: 10; -fx-min-width: 200;">
+            <Label text="Pending Deliveries" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+            <Label fx:id="pendingCountLabel" text="3" style="-fx-text-fill: white; -fx-font-size: 32;"/>
+        </VBox>
+
+        <VBox style="-fx-background-color: #2ecc71; -fx-padding: 15; -fx-background-radius: 10; -fx-min-width: 200;">
+            <Label text="Today's Completed" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+            <Label fx:id="deliveredTodayLabel" text="5" style="-fx-text-fill: white; -fx-font-size: 32;"/>
+        </VBox>
+
+        <VBox style="-fx-background-color: #f39c12; -fx-padding: 15; -fx-background-radius: 10; -fx-min-width: 200;">
+            <Label text="On-Time Rate" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+            <Label fx:id="onRouteCountLabel" text="95%" style="-fx-text-fill: white; -fx-font-size: 32;"/>
+        </VBox>
+    </HBox>
+
+    <VBox spacing="10" style="-fx-padding: 15; -fx-background-color: #f8f9fa; -fx-border-radius: 10;">
+        <Label text="Vehicle Status Update" style="-fx-font-weight: bold;"/>
+        <HBox spacing="10">
+            <TextField fx:id="vehicleStatusField" promptText="Enter vehicle status..." prefWidth="300"/>
+            <!-- THIS IS LINE 37 - Make sure onAction matches the method name -->
+            <Button text="Update Status" onAction="#handleUpdateVehicleStatus"
+                    style="-fx-background-color: #e67e22; -fx-text-fill: white;"/>
+        </HBox>
+    </VBox>
+</VBox>

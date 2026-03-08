@@ -1,0 +1,195 @@
+.glass-button-big {
+    -fx-background-color: rgba(255, 255, 255, 0.24);
+    -fx-text-fill: white;
+    -fx-font-size: 30;
+    -fx-font-weight: bold;
+    -fx-background-radius: 35;
+    -fx-border-radius: 35;
+    -fx-border-color: rgba(255, 255, 255, 0.45);
+    -fx-border-width: 3;
+    -fx-padding: 28 60;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 30, 0.4, 0, 12);
+    -fx-cursor: hand;
+}
+
+.glass-button-big:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.36);
+    -fx-scale-x: 1.04;
+    -fx-scale-y: 1.04;
+}
+
+.glass-field {
+    -fx-background-color: rgba(255, 255, 255, 0.28);
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: rgba(255, 255, 255, 0.82);
+    -fx-background-radius: 28;
+    -fx-padding: 22;
+    -fx-font-size: 19;
+}
+
+.glass-field:focused {
+    -fx-background-color: rgba(255, 255, 255, 0.44);
+}
+
+.solid-green {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 28;
+    -fx-font-size: 25;
+    -fx-padding: 20 50;
+    -fx-cursor: hand;
+}
+
+.solid-green:hover { -fx-background-color: #219a52; }
+
+.outline-green {
+    -fx-background-color: transparent;
+    -fx-text-fill: #27ae60;
+    -fx-border-color: #27ae60;
+    -fx-border-width: 4;
+    -fx-border-radius: 28;
+    -fx-font-weight: bold;
+    -fx-font-size: 23;
+    -fx-padding: 18 45;
+    -fx-cursor: hand;
+}
+
+.outline-green:hover { -fx-background-color: rgba(39, 174, 96, 0.22); }
+
+.link-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #dfe6e9;
+    -fx-font-size: 18;
+    -fx-cursor: hand;
+}
+
+.link-button:hover { -fx-text-fill: white; -fx-underline: true; }
+/* Password Hint Styling */
+.password-hint {
+    -fx-text-fill: rgba(255, 255, 255, 0.82);
+    -fx-font-size: 16px;
+    -fx-font-weight: normal;
+}
+
+.password-hint-error {
+    -fx-text-fill: #ff7675;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.password-hint-success {
+    -fx-text-fill: #27ae60;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* Show Password Checkbox Styling */
+.check-box {
+    -fx-text-fill: rgba(255, 255, 255, 0.9);
+    -fx-font-size: 17px;
+}
+
+.check-box .box {
+    -fx-background-color: rgba(255, 255, 255, 0.22);
+    -fx-border-color: rgba(255, 255, 255, 0.45);
+    -fx-border-width: 2;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.check-box:hover .box {
+    -fx-background-color: rgba(255, 255, 255, 0.32);
+}
+
+.check-box:selected .box {
+    -fx-background-color: #27ae60;
+    -fx-border-color: #27ae60;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
+
+/* Optional: Style for the glass-field when showing password */
+.glass-field.visible-password {
+    -fx-background-color: rgba(255, 255, 255, 0.32);
+}
+/* Customer Portal Specific Styles */
+.customer-hint {
+    -fx-text-fill: rgba(255, 255, 255, 0.82);
+    -fx-font-size: 16px;
+    -fx-font-weight: normal;
+}
+
+.customer-hint-error {
+    -fx-text-fill: #ff7675;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.customer-hint-success {
+    -fx-text-fill: #27ae60;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* Dialog Styles */
+.dialog-pane {
+    -fx-background-color: rgba(0, 0, 0, 0.9);
+    -fx-border-color: rgba(255, 255, 255, 0.2);
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: rgba(39, 174, 96, 0.3);
+}
+
+.dialog-pane .label {
+    -fx-text-fill: white;
+}
+
+.dialog-pane .button {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-padding: 8 20;
+    -fx-cursor: hand;
+}
+
+.dialog-pane .button:hover {
+    -fx-background-color: #219a52;
+}
+
+.dialog-pane .button:cancel {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dialog-pane .button:cancel:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Registration Dialog Fields */
+.registration-field {
+    -fx-background-color: rgba(255, 255, 255, 0.28);
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: rgba(255, 255, 255, 0.7);
+    -fx-padding: 12;
+    -fx-background-radius: 8;
+    -fx-font-size: 14;
+}
+
+.registration-field:focused {
+    -fx-background-color: rgba(255, 255, 255, 0.38);
+}
+
+.registration-validation {
+    -fx-text-fill: rgba(255, 255, 255, 0.7);
+    -fx-font-size: 13px;
+    -fx-padding: 2 0 0 5;
+}
+/* Make ChoiceBox dropdown appear on top */
+

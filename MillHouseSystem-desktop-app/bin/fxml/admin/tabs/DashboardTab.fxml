@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" fitToHeight="true" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fxml.admin.tabs.DashboardTabController">
+    <VBox spacing="30" style="-fx-padding: 30;">
+        <!-- Metrics Cards -->
+        <HBox spacing="30" alignment="CENTER">
+            <VBox style="-fx-background-color: #3498db; -fx-padding: 25; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 12, 0, 0, 6);">
+                <Label text="Total Customers" style="-fx-text-fill: white; -fx-font-size: 14;"/>
+                <Label fx:id="totalCustomersLabel" text="0" style="-fx-text-fill: white; -fx-font-size: 32; -fx-font-weight: bold;"/>
+            </VBox>
+            <VBox style="-fx-background-color: #2ecc71; -fx-padding: 25; -fx-background-radius: 15;">
+                <Label text="Total Transactions" style="-fx-text-fill: white; -fx-font-size: 14;"/>
+                <Label fx:id="totalTransactionsLabel" text="0" style="-fx-text-fill: white; -fx-font-size: 32; -fx-font-weight: bold;"/>
+            </VBox>
+            <VBox style="-fx-background-color: #e74c3c; -fx-padding: 25; -fx-background-radius: 15;">
+                <Label text="Total Revenue" style="-fx-text-fill: white; -fx-font-size: 14;"/>
+                <Label fx:id="totalRevenueLabel" text="ETB 0.00" style="-fx-text-fill: white; -fx-font-size: 32; -fx-font-weight: bold;"/>
+            </VBox>
+            <VBox style="-fx-background-color: #f39c12; -fx-padding: 25; -fx-background-radius: 15;">
+                <Label text="Inventory Value" style="-fx-text-fill: white; -fx-font-size: 14;"/>
+                <Label fx:id="inventoryValueLabel" text="ETB 0.00" style="-fx-text-fill: white; -fx-font-size: 32; -fx-font-weight: bold;"/>
+            </VBox>
+        </HBox>
+
+        <!-- Charts -->
+        <VBox spacing="20">
+            <Label text="Revenue Trend (Last 7 Days)" style="-fx-font-size: 19; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+            <BarChart fx:id="revenueChart" prefHeight="350" legendVisible="false">
+                <xAxis><CategoryAxis label="Date"/></xAxis>
+                <yAxis><NumberAxis label="Revenue (ETB)"/></yAxis>
+            </BarChart>
+
+            <Label text="Grain Processing Distribution" style="-fx-font-size: 19; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+            <PieChart fx:id="grainDistributionChart" prefHeight="350"/>
+        </VBox>
+    </VBox>
+</ScrollPane>

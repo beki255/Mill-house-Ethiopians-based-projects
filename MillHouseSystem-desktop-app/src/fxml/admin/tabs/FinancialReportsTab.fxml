@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="15" xmlns="http://javafx.com/javafx/21" 
+      xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="fxml.admin.tabs.FinanceTabController">
+    
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    
+    <!-- Date Selection -->
+    <HBox spacing="10">
+        <Label text="Start Date:"/>
+        <DatePicker fx:id="startDatePicker"/>
+        <Label text="End Date:"/>
+        <DatePicker fx:id="endDatePicker"/>
+        <Button text="Generate Report" onAction="#handleGenerateReport"/>
+    </HBox>
+    
+    <!-- Tax Rate Section -->
+    <HBox spacing="10">
+        <Label text="Tax Rate (%):"/>
+        <TextField fx:id="taxRateField" prefWidth="60" text="15.0"/>
+        <Button text="Update Rate" onAction="#handleUpdateTaxRate"/>
+        <Label fx:id="taxRateLabel" text="(15.0%)"/>
+    </HBox>
+    
+    <!-- Financial Summary -->
+    <HBox spacing="20">
+        <!-- Total Revenue -->
+        <VBox alignment="CENTER" spacing="5" style="-fx-background-color: #2ecc71; -fx-padding: 15; -fx-background-radius: 5;">
+            <Label text="Total Revenue" style="-fx-text-fill: white;"/>
+            <Label fx:id="totalRevenueLabel" text="ETB 0.00" style="-fx-text-fill: white; -fx-font-size: 16;"/>
+        </VBox>
+        
+        <!-- Tax Amount -->
+        <VBox alignment="CENTER" spacing="5" style="-fx-background-color: #e74c3c; -fx-padding: 15; -fx-background-radius: 5;">
+            <Label text="Tax Amount" style="-fx-text-fill: white;"/>
+            <Label fx:id="taxAmountLabel" text="ETB 0.00" style="-fx-text-fill: white; -fx-font-size: 16;"/>
+        </VBox>
+        
+        <!-- Net Income -->
+        <VBox alignment="CENTER" spacing="5" style="-fx-background-color: #3498db; -fx-padding: 15; -fx-background-radius: 5;">
+            <Label text="Net Income" style="-fx-text-fill: white;"/>
+            <Label fx:id="netIncomeLabel" text="ETB 0.00" style="-fx-text-fill: white; -fx-font-size: 16;"/>
+        </VBox>
+        <!-- Add this section after the Net Income boxes -->
+<VBox alignment="CENTER" spacing="5" style="-fx-background-color: #9b59b6; -fx-padding: 15; -fx-background-radius: 5;">
+    <Label text="Electricity Usage" style="-fx-text-fill: white;"/>
+    <Label fx:id="electricityUsageLabel" text="0.00 kWh" style="-fx-text-fill: white; -fx-font-size: 16;"/>
+</VBox>
+
+<VBox alignment="CENTER" spacing="5" style="-fx-background-color: #34495e; -fx-padding: 15; -fx-background-radius: 5;">
+    <Label text="Electricity Cost" style="-fx-text-fill: white;"/>
+    <Label fx:id="electricityCostLabel" text="ETB 0.00" style="-fx-text-fill: white; -fx-font-size: 16;"/>
+</VBox>
+    </HBox>
+    
+    <!-- Summary Label -->
+    <Label fx:id="reportSummaryLabel" text="Select date range and click Generate Report"/>
+    
+    <!-- Table -->
+    <TableView fx:id="financialTable" prefHeight="300">
+        <columns>
+            <TableColumn text="Date"/>
+            <TableColumn text="Transactions"/>
+            <TableColumn text="Revenue (ETB)"/>
+            <TableColumn text="Average (ETB)"/>
+        </columns>
+    </TableView>
+</VBox>

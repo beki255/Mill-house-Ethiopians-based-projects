@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" vbarPolicy="AS_NEEDED"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fxml.operator.tabs.CustomersTabController">
+   <VBox spacing="15" style="-fx-padding: 20;">
+      <Label text="Customer Management" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+      
+      <!-- Customer Registration Form -->
+      <VBox spacing="10" style="-fx-padding: 15; -fx-background-color: #e8f4fd; -fx-border-color: #3498db; -fx-border-radius: 5;">
+         <Label text="Add New Customer (Operator Registration)" style="-fx-font-weight: bold; -fx-text-fill: #2980b9;" />
+         
+         <GridPane hgap="10" vgap="10">
+            <Label text="Full Name *" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+            <TextField fx:id="newCustomerName" promptText="Enter customer name" GridPane.rowIndex="0" GridPane.columnIndex="1" 
+                      prefWidth="250" />
+            
+            <Label text="Phone *" GridPane.rowIndex="0" GridPane.columnIndex="2" style="-fx-font-weight: bold;" />
+            <TextField fx:id="newCustomerPhone" promptText="09XXXXXXXX or 07XXXXXXXX" GridPane.rowIndex="0" GridPane.columnIndex="3" 
+                      prefWidth="200" />
+            
+            <Label text="Delivery Address" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+            <TextField fx:id="newCustomerAddress" promptText="Enter delivery address" GridPane.rowIndex="1" GridPane.columnIndex="1" 
+                      GridPane.columnSpan="3" prefWidth="500" />
+            
+            <!-- ADD THESE NEW FIELDS -->
+            <Label text="Portal Account" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+            <HBox spacing="10" GridPane.rowIndex="2" GridPane.columnIndex="1">
+                <CheckBox fx:id="createPortalAccountCheckbox" text="Create portal login" />
+                <Region HBox.hgrow="ALWAYS" />
+            </HBox>
+            
+            <Label text="Portal Password" GridPane.rowIndex="3" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+            <PasswordField fx:id="portalPasswordField" promptText="Auto-generated password" 
+                          GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="250" />
+            
+            <Button fx:id="addCustomerBtn" text="Add Customer" onAction="#handleAddCustomer" GridPane.rowIndex="4" GridPane.columnIndex="1"
+                    style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-min-width: 150;" />
+         </GridPane>
+         
+         <Label text="Note: Operator-added customers can place orders through operators only." 
+                style="-fx-text-fill: #7f8c8d; -fx-font-size: 12; -fx-wrap-text: true;" />
+      </VBox>
+
+      <!-- Search Box -->
+      <HBox spacing="10" alignment="CENTER_LEFT">
+         <Label text="Search:" style="-fx-font-weight: bold;" />
+         <TextField fx:id="searchField" promptText="Search by name or phone" 
+                   style="-fx-pref-width: 300;" />
+         <Button text="Search" onAction="#handleSearch" 
+                 style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold;" />
+         
+         <!-- ADD DELETE BUTTON HERE -->
+        <Button fx:id="deleteCustomerBtn" text="Delete Selected" onAction="#handleDeleteCustomer"
+        style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-min-width: 120;" />
+        
+         <Region HBox.hgrow="ALWAYS" />
+         <Button text="Refresh All" onAction="#refresh" 
+                 style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-font-weight: bold;" />
+      </HBox>
+      
+      <!-- Customer Table -->
+      <Label text="All Customers (Portal and Operator Registered)" 
+             style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+      
+      <TableView fx:id="customersTable" prefHeight="500">
+         <columns>
+            <TableColumn text="Name" prefWidth="180" />
+            <TableColumn text="Phone" prefWidth="150" />
+            <TableColumn text="Address" prefWidth="300" />
+            <TableColumn text="Registration Type" prefWidth="150" />
+            <TableColumn text="Portal Access" prefWidth="120" />
+            <TableColumn text="Registered Date" prefWidth="120" />
+         </columns>
+      </TableView>
+      
+      <!-- Customer Count -->
+      <Label fx:id="customerErrorLabel" style="-fx-text-fill: #7f8c8d; -fx-font-style: italic;" />
+   </VBox>
+</ScrollPane>

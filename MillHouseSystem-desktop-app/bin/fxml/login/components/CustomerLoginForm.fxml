@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="customerForm"
+      visible="false" managed="false"
+      alignment="CENTER" spacing="34" maxWidth="580"
+      style="-fx-background-color: rgba(255,255,255,0.22);
+             -fx-background-radius: 48;
+             -fx-padding: 65 80 75 80;
+             -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75), 55, 0.7, 0, 22);"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="fxml.login.components.CustomerLoginFormController">
+
+    <Label text="Customer Portal" style="-fx-font-size: 42; -fx-text-fill: white; -fx-font-weight: bold;"/>
+    
+    <!-- Phone Field with Hint -->
+    <VBox spacing="8" alignment="CENTER_LEFT">
+        <TextField fx:id="customerPhoneField" promptText="09XXXXXXXX or 07XXXXXXXX" styleClass="glass-field"/>
+        <Label fx:id="phoneHintLabel" style="-fx-text-fill: rgba(255,255,255,0.82); -fx-font-size: 16; -fx-font-weight: normal; -fx-padding: 0 10;"/>
+    </VBox>
+    
+    <!-- Password Fields with Hint -->
+    <VBox spacing="8" alignment="CENTER_LEFT">
+        <PasswordField fx:id="customerPasswordField" promptText="Password (min 8 characters)" styleClass="glass-field"/>
+        <TextField fx:id="customerVisiblePasswordField" promptText="Password (min 8 characters)" styleClass="glass-field"/>
+        <Label fx:id="passwordHintLabel" style="-fx-text-fill: rgba(255,255,255,0.82); -fx-font-size: 16; -fx-font-weight: normal; -fx-padding: 0 10;"/>
+    </VBox>
+    
+    <!-- Show Password Checkbox -->
+    <HBox spacing="22" alignment="CENTER_LEFT">
+        <CheckBox fx:id="customerShowPasswordCheckbox" text="Show password" 
+                  style="-fx-text-fill: rgba(255,255,255,0.9); -fx-font-size: 17;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+    </HBox>
+    
+    <!-- Error Label -->
+    <Label fx:id="customerErrorLabel" style="-fx-text-fill: #ff7675; -fx-font-weight: bold; -fx-font-size: 18; -fx-padding: 5 0;"/>
+
+    <VBox spacing="25" alignment="CENTER">
+        <!-- Login Button -->
+        <Button fx:id="customerLoginButton" text="LOGIN"
+                onAction="#handleCustomerLogin"
+                prefWidth="420" prefHeight="72" styleClass="solid-green"/>
+        
+        <!-- Register Button -->
+        <Button fx:id="customerRegisterButton" text="REGISTER"
+                onAction="#handleRegister"
+                prefWidth="420" prefHeight="72" styleClass="solid-green"/>
+    </VBox>
+
+    <!-- Back Button -->
+    <Button text="Back" onAction="#handleBack" styleClass="link-button"/>
+</VBox>

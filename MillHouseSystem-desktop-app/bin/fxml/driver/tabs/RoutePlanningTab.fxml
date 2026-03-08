@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fxml.driver.tabs.RoutePlanningTabController">
+    <VBox spacing="20" style="-fx-padding: 20;">
+        <Label text="Route Planning" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+
+        <VBox spacing="10">
+            <Label text="Route Description:"/>
+            <TextArea fx:id="routeDescriptionArea" prefHeight="200"
+                         promptText="Enter route details, stops, and instructions..."/>
+        </VBox>
+
+        <HBox spacing="10">
+            <Label text="Estimated Time (hours):"/>
+            <TextField fx:id="estimatedTimeField" prefWidth="100"/>
+            <Button text="Save Route Plan" onAction="#handleSaveRoute"
+                    style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
+        </HBox>
+    </VBox>
+</ScrollPane>

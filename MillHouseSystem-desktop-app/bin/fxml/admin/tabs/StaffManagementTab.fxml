@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fxml.admin.tabs.StaffManagementTabController">
+    <VBox spacing="25" style="-fx-padding: 25;">
+        <!-- Summary Cards -->
+        <HBox spacing="30">
+            <VBox style="-fx-background-color: #9b59b6; -fx-padding: 20; -fx-background-radius: 12;">
+                <Label text="Total Staff" style="-fx-text-fill: white;"/>
+                <Label fx:id="totalStaffLabel" text="0" style="-fx-text-fill: white; -fx-font-size: 28; -fx-font-weight: bold;"/>
+            </VBox>
+            <VBox style="-fx-background-color: #1abc9c; -fx-padding: 20; -fx-background-radius: 12;">
+                <Label text="Monthly Salary Expense" style="-fx-text-fill: white;"/>
+                <Label fx:id="totalSalaryExpenseLabel" text="ETB 0.00" style="-fx-text-fill: white; -fx-font-size: 24; -fx-font-weight: bold;"/>
+            </VBox>
+            <VBox style="-fx-background-color: #3498db; -fx-padding: 20; -fx-background-radius: 12;">
+                <Label text="Active Staff" style="-fx-text-fill: white;"/>
+                <Label fx:id="activeStaffLabel" text="0" style="-fx-text-fill: white; -fx-font-size: 28; -fx-font-weight: bold;"/>
+            </VBox>
+        </HBox>
+
+        <!-- Add/Edit Form -->
+        <VBox spacing="12" style="-fx-padding: 20; -fx-background-color: #f8f9fa; -fx-background-radius: 10;">
+            <Label text="Add / Edit Staff Member" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+            <GridPane hgap="15" vgap="12">
+                <columnConstraints>
+                    <ColumnConstraints prefWidth="130"/>
+                    <ColumnConstraints prefWidth="220"/>
+                    <ColumnConstraints prefWidth="130"/>
+                    <ColumnConstraints prefWidth="220"/>
+                </columnConstraints>
+
+                <Label text="Full Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="staffNameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Username:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                <TextField fx:id="staffUsernameField" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                <Label text="Phone:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="staffPhoneField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Password:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                <PasswordField fx:id="staffPasswordField" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+                <Label text="Role:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="staffRoleCombo" prefWidth="220" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="Department:" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+                <ComboBox fx:id="staffDepartmentCombo" prefWidth="220" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+
+                <Label text="Salary (ETB):" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <TextField fx:id="staffSalaryField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                <Label text="Hire Date:" GridPane.rowIndex="3" GridPane.columnIndex="2"/>
+                <DatePicker fx:id="hireDatePicker" GridPane.rowIndex="3" GridPane.columnIndex="3"/>
+
+                <Label text="Tasks:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <TextField fx:id="staffTaskField" GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.columnSpan="3" prefWidth="590"/>
+            </GridPane>
+
+            <HBox spacing="15" alignment="CENTER_LEFT" style="-fx-padding: 10 0 0 0;">
+                <Button text="Add Staff" onAction="#handleAddStaff"
+                        style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Button text="Update Status" onAction="#handleUpdateStaffStatus"
+                        style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
+                <Button text="Delete Staff" onAction="#handleDeleteStaff"
+                        style="-fx-background-color: #e74c3c; -fx-text-fill: white;"/>
+                <Button text="Reset Password" onAction="#handleResetPassword"
+                        style="-fx-background-color: #f39c12; -fx-text-fill: white;"/>
+                        <!-- Add this button to the HBox with other buttons -->
+                <Button text="Change My Password" onAction="#handleChangeMyPassword"
+                        style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            </HBox>
+        </VBox>
+
+        <TableView fx:id="staffTable" prefHeight="400">
+            <columns>
+                <TableColumn text="Name" prefWidth="130"/>
+                <TableColumn text="Username" prefWidth="100"/>
+                <TableColumn text="Role" prefWidth="110"/>
+                <TableColumn text="Department" prefWidth="120"/>
+                <TableColumn text="Phone" prefWidth="110"/>
+                <TableColumn text="Salary" prefWidth="110"/>
+                <TableColumn text="Tasks" prefWidth="180"/>
+                <TableColumn text="Status" prefWidth="90"/>
+            </columns>
+        </TableView>
+    </VBox>
+</ScrollPane>

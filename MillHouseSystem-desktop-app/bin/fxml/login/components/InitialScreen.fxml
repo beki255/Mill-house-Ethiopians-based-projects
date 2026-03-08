@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="initialScreen" alignment="CENTER" spacing="40" maxWidth="520"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="fxml.login.components.InitialScreenController">
+
+    <!-- STAFF LOGIN BUTTON — ADD onAction -->
+    <Button fx:id="showStaffLogin" text="STAFF LOGIN"
+            onAction="#handleStaffLogin"
+            prefWidth="480" prefHeight="100"
+            styleClass="glass-button-big"/>
+
+    <!-- CUSTOMER PORTAL BUTTON — ADD onAction -->
+    <Button fx:id="showCustomerLogin" text="CUSTOMER PORTAL"
+            onAction="#handleCustomerLogin"
+            prefWidth="480" prefHeight="100"
+            styleClass="glass-button-big"/>
+</VBox>

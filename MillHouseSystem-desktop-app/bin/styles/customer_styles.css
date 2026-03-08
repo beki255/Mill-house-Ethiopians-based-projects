@@ -1,0 +1,109 @@
+/* Customer Dashboard Styles */
+
+/* Moving welcome message animation */
+ @keyframes marquee {
+  
+    100% {
+    	transform:translateX(100%); 
+}
+}
+.moving-label {
+    animation: marquee 20s linear infinite;
+}
+
+/* Grain image card hover effects */
+.grain-card {
+    -fx-background-color: #f8f9fa;
+    -fx-padding: 20;
+    -fx-background-radius: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);
+    -fx-transition: all 0.3s ease;
+    -fx-cursor: hand;
+}
+
+.grain-card:hover {
+    -fx-background-color: #e8f4fd;
+    -fx-effect: dropshadow(gaussian, rgba(52, 152, 219, 0.3), 15, 0, 0, 5);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.grain-image {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 2);
+    -fx-transition: all 0.3s ease;
+}
+
+.grain-image:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 12, 0, 0, 4);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* Grain type specific colors */
+.wheat-card {
+    -fx-border-color: #f39c12;
+    -fx-border-width: 2;
+    -fx-border-radius: 15;
+}
+
+.teff-card {
+    -fx-border-color: #9b59b6;
+    -fx-border-width: 2;
+    -fx-border-radius: 15;
+}
+
+.corn-card {
+    -fx-border-color: #e67e22;
+    -fx-border-width: 2;
+    -fx-border-radius: 15;
+}
+
+.barley-card {
+    -fx-border-color: #1abc9c;
+    -fx-border-width: 2;
+    -fx-border-radius: 15;
+}
+
+/* Button hover effects */
+.grain-order-button {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-padding: 8 20;
+    -fx-transition: all 0.3s ease;
+}
+
+.grain-order-button:hover {
+    -fx-background-color: #2ecc71;
+    -fx-effect: dropshadow(gaussian, rgba(39, 174, 96, 0.4), 8, 0, 0, 2);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+/* Tab styling */
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: linear-gradient(to right, #27ae60, #2ecc71);
+}
+.tab-pane .tab {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-font-weight: bold;
+}
+.tab-pane .tab:selected {
+    -fx-background-color: white;
+    -fx-background-radius: 5 5 0 0;
+    -fx-border-color: #27ae60;
+    -fx-border-width: 2 2 0 2;
+}
+.tab-pane .tab:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.3);
+}
+/* Tooltip styling */
+.tooltip {
+    -fx-background-color: rgba(44, 62, 80, 0.9);
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-padding: 8px;
+    -fx-background-radius: 5;
+}

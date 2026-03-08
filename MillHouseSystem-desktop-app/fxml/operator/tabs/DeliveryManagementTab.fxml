@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="15" style="-fx-padding: 20;" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="fxml.operator.tabs.DeliveryManagementTabController">
+    
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Delivery Management" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <TextField fx:id="searchField" promptText="Search orders..." prefWidth="200"/>
+        <Button fx:id="refreshButton" text="Refresh" onAction="#handleRefresh" 
+                style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
+    </HBox>
+    
+    <Separator/>
+    
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <Label text="Available Drivers:" style="-fx-font-weight: bold;"/>
+        <ComboBox fx:id="driverComboBox" prefWidth="200" promptText="Select driver"/>
+        <Button fx:id="assignButton" text="Assign to Driver" onAction="#handleAssignDriver"
+                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;"/>
+    </HBox>
+    
+    <Label text="Orders Ready for Delivery" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+    
+    <TableView fx:id="ordersTable" prefHeight="400">
+        <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+    </TableView>
+    
+</VBox>

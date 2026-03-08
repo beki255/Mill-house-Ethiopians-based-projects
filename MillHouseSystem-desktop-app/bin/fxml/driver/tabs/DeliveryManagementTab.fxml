@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fxml.driver.tabs.DeliveryManagementTabController">
+    <VBox spacing="20" style="-fx-padding: 20;">
+        <Label text="Today's Deliveries" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+
+        <TableView fx:id="deliveriesTable" prefHeight="300">
+            <columns>
+                <TableColumn text="Order ID" prefWidth="120"/>
+                <TableColumn text="Delivery Address" prefWidth="250"/>
+                <TableColumn text="Contact" prefWidth="120"/>
+                <TableColumn text="Status" prefWidth="120"/>
+            </columns>
+        </TableView>
+        <HBox spacing="10">
+            <Label text="Update Status:"/>
+            <ComboBox fx:id="deliveryStatusCombo" prefWidth="150"/>
+            <Button text="Update Delivery Status" onAction="#handleUpdateDeliveryStatus"
+                    style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
+        </HBox>
+        <!-- Add this after the title label -->
+<HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 5;">
+    <Label fx:id="driverNameLabel" text="Driver: " style="-fx-font-weight: bold;"/>
+    <Region HBox.hgrow="ALWAYS" />
+    <Label fx:id="deliveryCountLabel" text="Deliveries: 0" style="-fx-text-fill: #3498db; -fx-font-weight: bold;"/>
+</HBox>
+    </VBox>
+</ScrollPane>
